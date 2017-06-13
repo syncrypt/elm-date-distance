@@ -15,6 +15,7 @@ module Date.Distance
 -}
 
 import Date.Distance.I18n.En as English
+import Date.Distance.I18n.De as German
 import Date.Distance.Types exposing (..)
 import Date exposing (Month(..))
 import Date.Extra as Date exposing (Interval(..))
@@ -60,6 +61,13 @@ inWords =
 defaultConfig : Config
 defaultConfig =
     { locale = English.locale { addSuffix = False }
+    , includeSeconds = False
+    }
+
+
+germanConfig : Config
+germanConfig =
+    { locale = German.locale { addSuffix = False }
     , includeSeconds = False
     }
 
