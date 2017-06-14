@@ -64,7 +64,7 @@ defaultConfig : Config
 defaultConfig = 
     englishConfig
 
-
+englishConfig : Config
 englishConfig =
     { locale = English.locale { addSuffix = False }
     , includeSeconds = False
