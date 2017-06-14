@@ -3,6 +3,8 @@ module Date.Distance
         ( inWords
         , inWordsWithConfig
         , defaultConfig
+        , englishConfig
+        , germanConfig
         )
 
 {-|
@@ -59,7 +61,11 @@ inWords =
 {-| Default configuration. Use with `inWordsWithConfig`.
 -}
 defaultConfig : Config
-defaultConfig =
+defaultConfig = 
+    englishConfig
+
+
+englishConfig =
     { locale = English.locale { addSuffix = False }
     , includeSeconds = False
     }
