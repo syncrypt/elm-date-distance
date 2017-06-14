@@ -8,12 +8,20 @@ module Date.Distance
         )
 
 {-|
+
+
 # Basics
+
 @docs inWords
 
+
 # Custom Config
+
 @docs inWordsWithConfig
 @docs defaultConfig
+@docs englishConfig
+@docs germanConfig
+
 -}
 
 import Date.Distance.I18n.En as English
@@ -49,6 +57,7 @@ minutes_in_two_months =
     date2 = Date.fromParts 2017 May 7 10 20 0 0
 
     inWords date1 date2 == "2 days"
+
 -}
 inWords :
     Date.Date
@@ -61,9 +70,12 @@ inWords =
 {-| Default configuration. Use with `inWordsWithConfig`.
 -}
 defaultConfig : Config
-defaultConfig = 
+defaultConfig =
     englishConfig
 
+
+{-| Default English configuration. Use with `inWordsWithConfig`.
+-}
 englishConfig : Config
 englishConfig =
     { locale = English.locale { addSuffix = False }
@@ -71,6 +83,8 @@ englishConfig =
     }
 
 
+{-| Default German configuration. Use with `inWordsWithConfig`.
+-}
 germanConfig : Config
 germanConfig =
     { locale = German.locale { addSuffix = False }
@@ -88,6 +102,7 @@ germanConfig =
 
 Read the documentation on `Config` for a full run down
 of the available options.
+
 -}
 inWordsWithConfig :
     Config
