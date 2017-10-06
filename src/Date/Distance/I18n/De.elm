@@ -59,19 +59,19 @@ locale_ distance =
             exact Minute i
 
         AboutXHours i ->
-            circa "ungefähr" Hour i
+            circa "ca." Hour i
 
         XDays i ->
             exact Day i
 
         AboutXMonths i ->
-            circa "ungefähr" Month i
+            circa "ca." Month i
 
         XMonths i ->
             exact Month i
 
         AboutXYears i ->
-            circa "ungefähr" Year i
+            circa "ca." Year i
 
         OverXYears i ->
             circa "mehr als" Year i
