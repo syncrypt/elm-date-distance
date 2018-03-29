@@ -9,13 +9,15 @@ module Date.Distance.I18n.De
 @docs locale
 -}
 
-import String
-import Date.Distance.Types exposing (Locale, DistanceLocale(..))
+import Date.Distance.Types exposing (DistanceLocale(..), Locale)
 import Date.Extra as Date exposing (Interval(..))
+import String
 
 
 {-| Configure the localization function.
-* `addSuffix` – turns `2 Tage` into `vor 2 Tagen` or `in 2 Tagen`
+
+  - `addSuffix` – turns `2 Tage` into `vor 2 Tagen` or `in 2 Tagen`
+
 -}
 type alias LocaleConfig =
     { addSuffix : Bool
@@ -24,9 +26,13 @@ type alias LocaleConfig =
 
 {-| Configure the German locale.
 
-    locale = I18n.De.locale { addSuffix = True }
-    inWords = { defaultConfig | locale = locale }
-      |> inWordsWithConfig
+    locale =
+        I18n.De.locale { addSuffix = True }
+
+    inWords =
+        { defaultConfig | locale = locale }
+            |> inWordsWithConfig
+
 -}
 locale : LocaleConfig -> Locale
 locale { addSuffix } order distance =
@@ -34,13 +40,13 @@ locale { addSuffix } order distance =
         result =
             locale_ distance
     in
-        if addSuffix then
-            if order == LT then
-                "in " ++ result
-            else
-                "vor " ++ result
+    if addSuffix then
+        if order == LT then
+            "in " ++ result
         else
-            result
+            "vor " ++ result
+    else
+        result
 
 
 locale_ : DistanceLocale -> String
