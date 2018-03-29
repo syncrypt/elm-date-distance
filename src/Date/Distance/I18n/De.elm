@@ -166,4 +166,4 @@ exact interval i =
             "1 " ++ formatInterval interval
 
         _ ->
-            toString i ++ " " ++ formatInterval interval ++ "en"
+            toString i ++ " " ++ (pluralize <| formatInterval interval)
